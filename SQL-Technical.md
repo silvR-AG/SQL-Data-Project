@@ -128,8 +128,8 @@ Column Level Trigger gets executed before or after the specified column changes
 
 
 References:
-- SQL tutorial[https://www.w3schools.com/sql/default.asp]
-- DBMS[https://www.geeksforgeeks.org/dbms/?ref=lbp]
+- [SQL tutorial](https://www.w3schools.com/sql/default.asp)
+- [DBMS](https://www.geeksforgeeks.org/dbms/?ref=lbp)
 
 
 
