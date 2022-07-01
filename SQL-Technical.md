@@ -31,7 +31,7 @@ The property of durability refers to the fact that if an operation is completed 
 #### CAP Theorem:
 The CAP theorem states that it is impossible for a distributed computing system to simultaneously provide all three of the following guarantees:
 
-    - Consistency: All clients see (immediately) the latest data even in the case of updates.
+    - Consistency: All clients see the latest data even in the case of updates.
     - Availability: All clients can find a replica of some data even in the case of a node failure. This means that even if some part of the system goes         down, the clients can still access the data.
     - Partition tolerance: The system continues to work regardless of arbitrary message loss or failure of part of the system.
 
@@ -91,9 +91,45 @@ Lock mode considers various lock types that can be applied to a resource that ha
    - Bulk update (BU)
 
 #### Database Isolation Levels:
-#### Triggers
+Isolation is the property of databases that ensures their integrity. Isolation levels are levels defined within a database system, which define how much a certain transaction needs to be isolated from any modifications made in the database by other transactions. 
+The SQL standard defines four isolation levels.
+
+######Read Uncommitted
+The lowest isolation level allowed by SQL is read uncommitted. In this level, transactions can read data that is not committed by other transactions, permitting dirty read. It is safe to say that transactions are not isolated from each other in this isolation level.
+
+######Read Committed
+This isolation level allows for the reading of data after it is committed by a transaction. This means no dirty reads are possible. This isolation is unable to prevent non-repeatable reads. This is ensured as locks are applied on the row being read. This prevents the reading, updating, and deletion of data.
+
+######Repeatable Read
+This isolation tries to improve on the previous isolation level by preventing both dirty reads and non-repeatable reads. This prevention is done by applying locks on rows that are read and rows that perform write operations. However, this cannot prevent the addition of new entries to the database if the transaction is performing some work (not between two reads).
+
+######Serializable
+The highest isolation level allowed is serializable. This isolation level looks like a serial execution, with almost no concurrency. All the three read phenomena are prevented in this isolation level, but it compromises concurrent execution.
 
 
+#### Triggers:
+Triggers are the SQL codes that are automatically executed in response to certain events on a particular table. These are used to maintain the integrity of the data. Example of a trigger creations is:
+
+    Create Trigger Trigger_Name
+    (Before | After)  [ Insert | Update | Delete]
+    on [Table_Name]
+    [ for each row | for each column ]
+    [ trigger_body ]
+
+The syntax is explained below: 
+- Create Trigger - These two keywords are used to specify that a trigger block is going to be declared. 
+- Trigger_Name - It specifies the name of the trigger. Trigger name has to be unique and shouldn’t repeat.
+- ( Before | After ) - This specifies when the trigger will be executed. It tells us the time at which the trigger is initiated, i.e, either before the ongoing event or after.
+- [ Insert | Update | Delete ] - These are the DML operations and we can use either of them in a given trigger.
+- on [ Table_Name ] - We need to mention the table name on which the trigger is being applied. Don’t forget to use on keyword and also make sure the selected table is present in the database.
+- [ for each row | for each column ] - Row-level trigger gets executed before or after any column value of a row changes
+Column Level Trigger gets executed before or after the specified column changes
+- [ trigger_body] - It consists of queries that need to be executed when the trigger is called.
+
+
+References:
+- SQL tutorial [https://www.w3schools.com/sql/default.asp]
+- DBMS [https://www.geeksforgeeks.org/dbms/?ref=lbp]
 
 
 
