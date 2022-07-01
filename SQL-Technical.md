@@ -28,7 +28,13 @@ Isolation is defined as a state of separation. Isolation is a property where no 
 The property of durability refers to the fact that if an operation is completed successfully, the database remains permanent in the disk. The database’s durability should be such that even if the system fails or crashes, the database will survive. However, if the database is lost, the recovery manager is responsible for guaranteeing the database’s long-term viability.
 
 
-#### CAP Theorem
+#### CAP Theorem:
+The CAP theorem states that it is impossible for a distributed computing system to simultaneously provide all three of the following guarantees:
+
+    - Consistency: All clients see (immediately) the latest data even in the case of updates.
+    - Availability: All clients can find a replica of some data even in the case of a node failure. This means that even if some part of the system goes         down, the clients can still access the data.
+    - Partition tolerance: The system continues to work regardless of arbitrary message loss or failure of part of the system.
+
 
 #### JOINS:
 A JOIN clause is used to combine rows from two or more tables, based on a related column between them. There are four different types of the JOINs in SQL:
@@ -42,6 +48,14 @@ Left,Right and Full JOINS are considered as outer joins.
 
 
 #### Aggregations, Filters in queries:
+
+###### Aggregations:
+Aggregations are queries which are used to perform calculations of multiple datas and return a single value. Like finding out the sum of a set of values. Examples of aggregations are the SUM and COUNT clause.
+
+###### Filters
+SQL allows filtering data during querying. Using various techniques of filtering in SQL, one can simplify the output of queries without having to implement any separate query. Examples of filters are, GROUP BY , HAVING and FILTER clauses.
+
+
 #### Normalization:
 Normalization is the process of organizing the data and the attributes of a database. It is performed to reduce the data redundancy in a database and to ensure that data is stored logically. Data redundancy means having the same data but at multiple places. It is necessary to remove data redundancy because it causes anomalies in a database which makes it very hard for a database administrator to maintain it.
 
@@ -65,6 +79,17 @@ A transaction is a logical unit of work that accesses and updates the contents o
 
 
 #### Locking mechanism:
+Locks in SQL are used to prevent concurrent use of data during transactions. As concurrent use of datas may create inconsistency, thereby not following the ACID properties. Therefore, locking mechanisms are used to avoid such situations.
+
+Lock mode considers various lock types that can be applied to a resource that has to be locked:
+
+   - Exclusive (X)
+   - Shared (S)
+   - Update (U)
+   - Intent (I)
+   - Schema (Sch)
+   - Bulk update (BU)
+
 #### Database Isolation Levels:
 #### Triggers
 
