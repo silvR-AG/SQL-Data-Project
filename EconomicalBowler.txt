@@ -1,0 +1,8 @@
+SELECT DISTINCT bowler, sum(total_runs)/count(distinct over) as economy 
+FROM matches 
+INNER JOIN delivery 
+on matches.id = delivery.match_id 
+where season = 2015 
+group by bowler 
+order by economy asc 
+LIMIT 10

@@ -1,0 +1,12 @@
+
+SELECT bowling_team, sum(extra_runs) 
+FROM matches 
+INNER JOIN delivery 
+on matches.id = delivery.match_id 
+where season = 2016
+group by bowling_team
+order by bowling_team
+
+
+
+

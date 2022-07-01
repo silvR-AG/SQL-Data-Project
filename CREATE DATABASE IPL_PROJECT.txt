@@ -1,0 +1,138 @@
+CREATE DATABASE IPL_PROJECT
+CREATE TABLE Delivery(
+match_id Integer,
+inning INTEGER,
+batting_team text,
+bowling_team text,
+over INTEGER,
+ball INTEGER,
+batsman text,
+non_striker text,
+bowler text,
+is_super_over INTEGER,
+wide_runs INTEGER,
+bye_runs INTEGER,
+legbye_runs INTEGER,
+noball_runs INTEGER,
+penalty_runs INTEGER,
+batsman_runs INTEGER,
+extra_runs INTEGER,
+total_runs INTEGER,
+player_dismissed text,
+dismissal_kind text,
+fielder text);
+
+COPY Delivery(match_id ,
+inning ,
+batting_team ,
+bowling_team ,
+over ,
+ball ,
+batsman ,
+non_striker ,
+bowler ,
+is_super_over ,
+wide_runs ,
+bye_runs ,
+legbye_runs ,
+noball_runs ,
+penalty_runs ,
+batsman_runs ,
+extra_runs ,
+total_runs ,
+player_dismissed ,
+dismissal_kind ,
+fielder )
+FROM '/tmp/deliveries.csv'
+DELIMITER ','
+CSV HEADER;
+
+SELECT * FROM Delivery
+limit 10 offset 1;
+
+CREATE TABLE Matches(
+id  Integer,
+season INTEGER,
+city text,
+date DATE NOT NULL,
+team1 text,
+team2 text,
+toss_winner text,
+toss_decision text,
+result text,
+dl_applied INTEGER,
+winner text,
+win_by_runs INTEGER,
+win_by_wickets INTEGER,
+player_of_match text,
+venue text,
+umpire1 text,
+umpire2 text,
+umpire3 INTEGER);
+
+COPY matches( id  ,
+season ,
+city ,
+date  ,
+team1 ,
+team2 ,
+toss_winner ,
+toss_decision ,
+result ,
+dl_applied ,
+winner ,
+win_by_runs ,
+win_by_wickets ,
+player_of_match ,
+venue ,
+umpire1 ,
+umpire2 ,
+umpire3 )
+FROM '/tmp/matches.csv'
+DELIMITER ','
+CSV HEADER;
+
+SELECT count() FROM matches
+
+CREATE TABLE Matches(
+id  Integer,
+season INTEGER,
+city text,
+date DATE NOT NULL,
+team1 text,
+team2 text,
+toss_winner text,
+toss_decision text,
+result text,
+dl_applied INTEGER,
+winner text,
+win_by_runs INTEGER,
+win_by_wickets INTEGER,
+player_of_match text,
+venue text,
+umpire1 text,
+umpire2 text,
+umpire3 INTEGER);
+COPY matches( id  ,
+season ,
+city ,
+date  ,
+team1 ,
+team2 ,
+toss_winner ,
+toss_decision ,
+result ,
+dl_applied ,
+winner ,
+win_by_runs ,
+win_by_wickets ,
+player_of_match ,
+venue ,
+umpire1 ,
+umpire2 ,
+umpire3 )
+FROM '/tmp/matches.csv'
+DELIMITER ','
+CSV HEADER;
+
+SELECT * FROM matches

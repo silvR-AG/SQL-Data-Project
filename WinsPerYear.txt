@@ -1,0 +1,4 @@
+SELECT distinct winner,season,count(season) 
+from matches 
+group by winner,season 
+order by winner asc;
