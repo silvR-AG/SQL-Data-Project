@@ -94,16 +94,16 @@ Lock mode considers various lock types that can be applied to a resource that ha
 Isolation is the property of databases that ensures their integrity. Isolation levels are levels defined within a database system, which define how much a certain transaction needs to be isolated from any modifications made in the database by other transactions. 
 The SQL standard defines four isolation levels.
 
-######Read Uncommitted
+###### Read Uncommitted
 The lowest isolation level allowed by SQL is read uncommitted. In this level, transactions can read data that is not committed by other transactions, permitting dirty read. It is safe to say that transactions are not isolated from each other in this isolation level.
 
-######Read Committed
+###### Read Committed
 This isolation level allows for the reading of data after it is committed by a transaction. This means no dirty reads are possible. This isolation is unable to prevent non-repeatable reads. This is ensured as locks are applied on the row being read. This prevents the reading, updating, and deletion of data.
 
-######Repeatable Read
+###### Repeatable Read
 This isolation tries to improve on the previous isolation level by preventing both dirty reads and non-repeatable reads. This prevention is done by applying locks on rows that are read and rows that perform write operations. However, this cannot prevent the addition of new entries to the database if the transaction is performing some work (not between two reads).
 
-######Serializable
+###### Serializable
 The highest isolation level allowed is serializable. This isolation level looks like a serial execution, with almost no concurrency. All the three read phenomena are prevented in this isolation level, but it compromises concurrent execution.
 
 
@@ -127,7 +127,7 @@ Column Level Trigger gets executed before or after the specified column changes
 - [ trigger_body] - It consists of queries that need to be executed when the trigger is called.
 
 
-References:
+#### References:
 - [SQL tutorial](https://www.w3schools.com/sql/default.asp)
 - [DBMS](https://www.geeksforgeeks.org/dbms/?ref=lbp)
 
