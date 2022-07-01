@@ -43,7 +43,17 @@ Left,Right and Full JOINS are considered as outer joins.
 
 #### Aggregations, Filters in queries:
 #### Normalization:
+Normalization is the process of organizing the data and the attributes of a database. It is performed to reduce the data redundancy in a database and to ensure that data is stored logically. Data redundancy means having the same data but at multiple places. It is necessary to remove data redundancy because it causes anomalies in a database which makes it very hard for a database administrator to maintain it.
+
+There are four types of normal forms that are usually used in relational databases:
+   1. 1NF: A relation is in 1NF if all its attributes have an atomic value.
+   2. 2NF: A relation is in 2NF if it is in 1NF and all non-key attributes are fully functional dependent on the candidate key.
+   3. 3NF: A relation is in 3NF if it is in 2NF and there is no transitive dependency.
+   4. BCNF: A relation is in BCNF if it is in 3NF and for every Functional Dependency, LHS is the super key.
+
 #### Indexes:
+Indexing is used to quickly retrieve particular data from the database. Formally we can define Indexing as a technique that uses data structures to optimize the searching time of a database query. Indexing reduces the number of disks required to access a particular data by internally creating an index table.Indexing is achieved by creating Index-table or Index.Index usually consists of two columns which are a key-value pair. The two columns of the index table(i.e., the key-value pair) contain copies of selected columns of the tabular data of the database. SQL indexes are used in relational databases to retrieve data. An index in SQL acts as a pointer to data in a specific table.
+
 #### Transactions:
 A transaction is a logical unit of work that accesses and updates the contents of a database. Read and write operations are used by transactions to access data. A transaction has several states:
 1. Active State: Every transaction starts out in the active state. The transaction is currently being carried out in this state.
@@ -52,6 +62,11 @@ A transaction is a logical unit of work that accesses and updates the contents o
 4. Committed State: If a transaction completes its final operation successfully, it is considered to be committed. In this state, all of the changes are written to memory and as a result, saved on the database system permanently.
 5. Aborted State: If any of the tests fail, the transaction is said to go to a failed state. Upon entering this state, the database recovery system attempts to bring the database to the previous consistent state(committed state). If this doesn’t happen then the transaction would be rolled back or aborted so as to bring the database back to a consistent state. Once it has been aborted, the database recovery module will either kill the transaction or re-start the transaction.
 6. Terminated State: If there is no rollback and the transaction is in the “committed state,” the system is consistent and ready for a new transaction, while the old one is terminated.
+
+
+#### Locking mechanism:
+#### Database Isolation Levels:
+#### Triggers
 
 
 
